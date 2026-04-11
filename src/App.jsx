@@ -15,10 +15,12 @@ const posts = [
   },
 ];
 
+import Navbar from "./components/Navbar";
+
 function App() {
   return (
     <>
-      {/* Navbar */}
+      <Navbar />
       <h1>Mr Mine Blog API</h1>
       {/* home or post */}
       <Home />
