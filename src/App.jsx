@@ -15,10 +15,13 @@ const posts = [
   },
 ];
 
+import useAllPosts from "./hooks/useAllPosts";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 function App() {
+  const { allPosts, error, loading } = useAllPosts();
+
   return (
     <>
       <Navbar />
