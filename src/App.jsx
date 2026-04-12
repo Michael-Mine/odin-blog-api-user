@@ -16,6 +16,7 @@ const posts = [
 ];
 
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
       <h1>Mr Mine Blog API</h1>
       {/* home or post */}
       <Home />
-      {/* Footer */}
+      <Footer />
     </>
   );
 }
