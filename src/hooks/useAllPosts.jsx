@@ -6,6 +6,7 @@ const useAllPosts = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log("fetching allPosts");
     fetch("http://localhost:3000/posts")
       .then((response) => {
         if (!response.ok) {
