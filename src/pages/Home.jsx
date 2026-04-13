@@ -1,22 +1,6 @@
-// const posts = [
-//   {
-//     id: 1,
-//     title: "Thinking in React",
-//     content:
-//       "React can change how you think about the designs you look at and the apps you build. When you build a user interface with React, you will first break it apart into pieces called components. Then, you will describe the different visual states for each of your components. Finally, you will connect your components together so that the data flows through them. In this tutorial, we’ll guide you through the thought process of building a searchable product data table with React.",
-//     datePublished: "2026-03-30T00:01:01.000Z",
-//   },
-//   {
-//     id: 2,
-//     title: "2Thinking in React",
-//     content:
-//       "2React can change how you think about the designs you look at and the apps you build. When you build a user interface with React, you will first break it apart into pieces called components. Then, you will describe the different visual states for each of your components. Finally, you will connect your components together so that the data flows through them. In this tutorial, we’ll guide you through the thought process of building a searchable product data table with React.",
-//     datePublished: "2026-03-30T00:01:01.000Z",
-//   },
-// ];
-
 import { useOutletContext } from "react-router";
 import PostItem from "../components/PostItem";
+import styles from "../styles/Home.module.css";
 
 function Home() {
   const [allPosts, error, loading] = useOutletContext();
@@ -26,7 +10,7 @@ function Home() {
   if (error) return <p>A network error was encountered</p>;
 
   return (
-    <div>
+    <div className={styles.container}>
       {allPosts.map((post) => {
         return <PostItem key={post.id} post={post} />;
       })}
