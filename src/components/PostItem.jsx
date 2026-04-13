@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import styles from "../styles/PostItem.module.css";
 
 function dateDisplay(datePublished) {
@@ -7,11 +8,11 @@ function dateDisplay(datePublished) {
 }
 
 function PostItem({ post }) {
+  const url = "/post/" + post.id;
   const date = dateDisplay(post.datePublished);
 
   return (
-    // Link to post
-    <div className={styles.item}>
+    <Link to={url} className={styles.item}>
       <img
         src={post.picUrl ? post.picUrl : "https://picsum.photos/200/300"}
         alt="blog post picture"
@@ -22,7 +23,7 @@ function PostItem({ post }) {
         <h2>{post.title}</h2>
         <p>{post.content}</p>
       </div>
-    </div>
+    </Link>
   );
 }
 

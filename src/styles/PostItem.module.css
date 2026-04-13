@@ -20,3 +20,12 @@ p {
   margin-top: auto;
   padding: 20px;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+}
