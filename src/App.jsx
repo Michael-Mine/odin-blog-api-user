@@ -1,7 +1,7 @@
 import { Outlet } from "react-router";
 import useAllPosts from "./hooks/useAllPosts";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "./layouts/Navbar";
+import Footer from "./layouts/Footer";
 
 function App() {
   const { allPosts, error, loading } = useAllPosts();
@@ -10,7 +10,6 @@ function App() {
     <>
       <Navbar />
       <h1>Mr Mine Blog API</h1>
-      {/* home or post */}
       <Outlet context={[allPosts, error, loading]} />
       <Footer />
     </>
