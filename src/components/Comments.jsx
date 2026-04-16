@@ -1,4 +1,4 @@
-import formatDate from "../utils/formatDate";
+import CommentItem from "./CommentItem";
 
 function Comments({ post }) {
   const comments = post.comments;
@@ -12,20 +12,6 @@ function Comments({ post }) {
       {comments.map((comment) => {
         return <CommentItem key={comment.id} comment={comment} />;
       })}
-    </div>
-  );
-}
-
-function CommentItem({ comment }) {
-  const date = formatDate(comment.date);
-
-  return (
-    <div>
-      <p>
-        By {comment.authorId} on {date.toDateString()} at{" "}
-        {date.toLocaleTimeString()}{" "}
-      </p>
-      <p>{comment.content}</p>
     </div>
   );
 }
