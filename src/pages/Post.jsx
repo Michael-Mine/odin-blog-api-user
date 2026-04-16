@@ -2,13 +2,8 @@ import { useParams } from "react-router";
 import { useEffect } from "react";
 import usePost from "../hooks/usePost";
 import Comments from "../components/Comments";
+import formatDate from "../utils/formatDate";
 import styles from "../styles/Post.module.css";
-
-function dateDisplay(datePublished) {
-  const timestamp = Date.parse(datePublished);
-  const date = new Date(timestamp);
-  return date.toDateString();
-}
 
 function Post() {
   const { setPostId, post, error, loading } = usePost();
@@ -21,7 +16,7 @@ function Post() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>A network error was encountered</p>;
 
-  const date = dateDisplay(post.datePublished);
+  const date = formatDate(post.datePublished);
   console.log(post);
 
   return (
@@ -33,7 +28,10 @@ function Post() {
       />
       <div className={styles.post}>
         <h2>{post.title}</h2>
-        <p>By Mr Mine - Published {date}</p>
+        <p>
+          By Mr Mine - Published on {date.toDateString()} at{" "}
+          {date.toLocaleTimeString()}
+        </p>
         <p>{post.content}</p>
       </div>
       <Comments post={post} />

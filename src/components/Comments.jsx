@@ -1,3 +1,5 @@
+import formatDate from "../utils/formatDate";
+
 function Comments({ post }) {
   const comments = post.comments;
   console.log(comments);
@@ -15,10 +17,15 @@ function Comments({ post }) {
 }
 
 function CommentItem({ comment }) {
+  const date = formatDate(comment.date);
+
   return (
     <div>
+      <p>
+        By {comment.authorId} on {date.toDateString()} at{" "}
+        {date.toLocaleTimeString()}{" "}
+      </p>
       <p>{comment.content}</p>
-      <p>By - </p>
     </div>
   );
 }

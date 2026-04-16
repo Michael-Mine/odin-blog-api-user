@@ -1,15 +1,10 @@
 import { Link } from "react-router";
 import styles from "../styles/PostItem.module.css";
-
-function dateDisplay(datePublished) {
-  const timestamp = Date.parse(datePublished);
-  const date = new Date(timestamp);
-  return date.toDateString();
-}
+import formatDate from "../utils/formatDate";
 
 function PostItem({ post }) {
   const url = "/post/" + post.id;
-  const date = dateDisplay(post.datePublished);
+  const date = formatDate(post.datePublished);
 
   return (
     <Link to={url} className={styles.item}>
@@ -19,7 +14,7 @@ function PostItem({ post }) {
         className={styles.image}
       />
       <div className="text">
-        <h3>{date}</h3>
+        <h3>{date.toDateString()}</h3>
         <h2>{post.title}</h2>
         <p>{post.content}</p>
       </div>
