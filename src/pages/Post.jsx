@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
-import usePost from "../hooks/usePost";
 import { useEffect } from "react";
+import usePost from "../hooks/usePost";
+import Comments from "../components/Comments";
 import styles from "../styles/Post.module.css";
 
 function dateDisplay(datePublished) {
@@ -21,6 +22,7 @@ function Post() {
   if (error) return <p>A network error was encountered</p>;
 
   const date = dateDisplay(post.datePublished);
+  console.log(post);
 
   return (
     <div>
@@ -34,6 +36,7 @@ function Post() {
         <p>By Mr Mine - Published {date}</p>
         <p>{post.content}</p>
       </div>
+      <Comments post={post} />
     </div>
   );
 }
