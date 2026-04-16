@@ -1,5 +1,5 @@
 import { useOutletContext } from "react-router";
-import PostItem from "../components/PostItem";
+import HomePostItem from "../components/HomePostItem";
 import styles from "../styles/Home.module.css";
 
 function Home() {
@@ -12,7 +12,7 @@ function Home() {
   return (
     <div className={styles.container}>
       {allPosts.map((post) => {
-        return <PostItem key={post.id} post={post} />;
+        return <HomePostItem key={post.id} post={post} />;
       })}
     </div>
   );

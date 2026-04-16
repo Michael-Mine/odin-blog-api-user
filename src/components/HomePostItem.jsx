@@ -1,8 +1,8 @@
 import { Link } from "react-router";
-import styles from "../styles/PostItem.module.css";
+import styles from "../styles/HomePostItem.module.css";
 import formatDate from "../utils/formatDate";
 
-function PostItem({ post }) {
+function HomePostItem({ post }) {
   const url = "/post/" + post.id;
   const date = formatDate(post.datePublished);
 
@@ -22,4 +22,4 @@ function PostItem({ post }) {
   );
 }
 
-export default PostItem;
+export default HomePostItem;
