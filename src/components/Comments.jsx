@@ -16,11 +16,9 @@ function Comments() {
 
   console.log(comments);
 
-  if (comments.length === 0) return <h3>No Comments yet</h3>;
-
   return (
     <div>
-      <h3>Comments</h3>
+      <h3>{comments.length} Comments</h3>
       {comments.map((comment) => {
         return <CommentItem key={comment.id} comment={comment} />;
       })}

@@ -6,7 +6,7 @@ const useComments = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const url = "http://localhost:3000/posts/" + postId + "/comments";
+  const url = `http://localhost:3000/posts/${postId}/comments`;
 
   useEffect(() => {
     const controller = new AbortController();

@@ -6,8 +6,8 @@ function CommentItem({ comment }) {
   return (
     <div>
       <p>
-        By {comment.authorId} on {date.toDateString()} at{" "}
-        {date.toLocaleTimeString()}{" "}
+        By {comment.author.firstName} {comment.author.lastName.charAt(0)} on{" "}
+        {date.toDateString()} at {date.toLocaleTimeString()}{" "}
       </p>
       <p>{comment.content}</p>
       <hr />
