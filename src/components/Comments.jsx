@@ -1,10 +1,22 @@
+import { useParams } from "react-router";
+import { useEffect } from "react";
+import useComments from "../hooks/useComments";
 import CommentItem from "./CommentItem";
 
-function Comments({ post }) {
-  const comments = post.comments;
+function Comments() {
+  const { setPostId, comments, error, loading } = useComments();
+  let { postId } = useParams();
+
+  useEffect(() => {
+    setPostId(postId);
+  }, [postId, setPostId]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>A network error was encountered</p>;
+
   console.log(comments);
 
-  if (!comments) return <h3>No Comments yet</h3>;
+  if (comments.length === 0) return <h3>No Comments yet</h3>;
 
   return (
     <div>

@@ -1,23 +1,16 @@
-import { useParams } from "react-router";
-import { useEffect } from "react";
-import usePost from "../hooks/usePost";
+import { useOutletContext, useParams } from "react-router";
 import Comments from "../components/Comments";
 import formatDate from "../utils/formatDate";
 import styles from "../styles/Post.module.css";
 
 function Post() {
-  const { setPostId, post, error, loading } = usePost();
+  const [allPosts] = useOutletContext();
   let { postId } = useParams();
+  const post = allPosts.find((post) => post.id == postId);
 
-  useEffect(() => {
-    setPostId(postId);
-  }, [postId, setPostId]);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>A network error was encountered</p>;
+  if (!post) return <h2>Post Not Found</h2>;
 
   const date = formatDate(post.datePublished);
-  console.log(post);
 
   return (
     <div>
@@ -34,7 +27,7 @@ function Post() {
         </p>
         <p>{post.content}</p>
       </div>
-      <Comments post={post} />
+      <Comments />
     </div>
   );
 }
