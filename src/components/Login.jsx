@@ -32,9 +32,9 @@ function Login() {
   };
 
   if (loggingIn) return <p>Logging In...</p>;
+
   if (response && response.token) {
     localStorage.setItem("JWT", response.token);
-
     return (
       <div>
         <h4>Successfully Logged in</h4>

@@ -1,10 +1,10 @@
 import { useOutletContext, useParams } from "react-router";
 import formatDate from "../utils/formatDate";
-
+import SignUp from "../components/SignUp";
+import Login from "../components/Login";
 import WriteComment from "../components/WriteComment";
 import Comments from "../components/Comments";
 import styles from "../styles/Post.module.css";
-import Login from "../components/Login";
 
 function Post() {
   const [allPosts] = useOutletContext();
@@ -30,6 +30,7 @@ function Post() {
         </p>
         <p>{post.content}</p>
       </div>
+      <SignUp />
       <Login />
       <WriteComment />
       <Comments />
