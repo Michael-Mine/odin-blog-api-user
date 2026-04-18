@@ -8,9 +8,7 @@ function WriteComment() {
   const [sending, setSending] = useState(false);
   let { postId } = useParams();
   const url = `http://localhost:3000/posts/${postId}/comments`;
-  // get from local storage
-  const JWT =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im0yQG1pbmUubmV0IiwiaWF0IjoxNzc2NDYwMjIyLCJleHAiOjE3NzcwNjUwMjJ9.kHE3jnmbp6X1aZbjMfMOcbZZUJK1HjIeYdi4WXzavvU";
+  const JWT = localStorage.getItem("JWT");
 
   const submitComment = (input) => {
     console.log("submitting", input);
@@ -24,12 +22,7 @@ function WriteComment() {
       },
       body: JSON.stringify({ content: input }),
     })
-      .then((response) => {
-        // if (!response.ok) {
-        //   throw new Error(`Response status: ${response.status}`);
-        // }
-        return response.json();
-      })
+      .then((response) => response.json())
       .then((response) => setResponse({ ...response }))
       .catch((error) => setError(error))
       .finally(() => setSending(false));
