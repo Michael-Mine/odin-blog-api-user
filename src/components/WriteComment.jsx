@@ -25,9 +25,9 @@ function WriteComment() {
       body: JSON.stringify({ content: input }),
     })
       .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Response status: ${response.status}`);
-        }
+        // if (!response.ok) {
+        //   throw new Error(`Response status: ${response.status}`);
+        // }
         return response.json();
       })
       .then((response) => setResponse({ ...response }))
@@ -36,8 +36,8 @@ function WriteComment() {
   };
 
   if (sending) return <p>Sending...</p>;
-  if (error) return <p>A network error was encountered</p>;
-  if (response) return <p>{response.message}</p>;
+  if (response && response.message === "comment created")
+    return <p>{response.message}</p>;
 
   return (
     <div>
@@ -49,6 +49,8 @@ function WriteComment() {
         onChange={(event) => setInput(event.target.value)}
       />
       <button onClick={() => submitComment(input)}>Submit</button>
+      {error && <p>A network error was encountered</p>}
+      {response && <p>{response.message || response[0].msg}</p>}
     </div>
   );
 }
