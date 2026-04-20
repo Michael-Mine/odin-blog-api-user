@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import { useState } from "react";
 
-function WriteComment() {
+function WriteComment({ setLoggedIn }) {
   const [input, setInput] = useState("");
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
@@ -32,8 +32,15 @@ function WriteComment() {
   if (response && response.message === "comment created")
     return <p>{response.message}</p>;
 
+  const logout = () => {
+    localStorage.removeItem("JWT");
+    setLoggedIn(false);
+  };
+
   return (
     <div>
+      <h3>Add a Comment</h3>
+      <button onClick={() => logout()}>Logout</button>
       <input
         data-testid="comment-input"
         type="text"

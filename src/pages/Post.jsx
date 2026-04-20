@@ -35,7 +35,7 @@ function Post() {
       </div>
       <SignUp />
       {token || loggedIn ? (
-        <WriteComment />
+        <WriteComment setLoggedIn={setLoggedIn} />
       ) : (
         <Login setLoggedIn={setLoggedIn} />
       )}

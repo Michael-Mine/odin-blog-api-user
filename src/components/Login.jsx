@@ -24,24 +24,11 @@ function Login({ setLoggedIn }) {
       .finally(() => setLoggingIn(false));
   };
 
-  const logout = () => {
-    localStorage.removeItem("JWT");
-    setResponse(null);
-    setInputEmail("");
-    setInputPass("");
-  };
-
   if (loggingIn) return <p>Logging In...</p>;
 
   if (response && response.token) {
     localStorage.setItem("JWT", response.token);
     setLoggedIn(true);
-    return (
-      <div>
-        <h4>Successfully Logged in</h4>
-        <button onClick={() => logout()}>Logout</button>
-      </div>
-    );
   }
 
   return (
