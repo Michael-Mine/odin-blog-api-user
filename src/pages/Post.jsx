@@ -5,15 +5,18 @@ import Login from "../components/Login";
 import WriteComment from "../components/WriteComment";
 import Comments from "../components/Comments";
 import styles from "../styles/Post.module.css";
+import { useState } from "react";
 
 function Post() {
   const [allPosts] = useOutletContext();
+  const [loggedIn, setLoggedIn] = useState(false);
   let { postId } = useParams();
   const post = allPosts.find((post) => post.id == postId);
 
   if (!post) return <h2>Post Not Found</h2>;
 
   const date = formatDate(post.datePublished);
+  const token = localStorage.getItem("JWT");
 
   return (
     <div>
@@ -31,8 +34,11 @@ function Post() {
         <p>{post.content}</p>
       </div>
       <SignUp />
-      <Login />
-      <WriteComment />
+      {token || loggedIn ? (
+        <WriteComment />
+      ) : (
+        <Login setLoggedIn={setLoggedIn} />
+      )}
       <Comments />
     </div>
   );

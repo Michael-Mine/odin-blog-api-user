@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Login() {
+function Login({ setLoggedIn }) {
   const [inputEmail, setInputEmail] = useState("");
   const [inputPass, setInputPass] = useState("");
   const [response, setResponse] = useState(null);
@@ -35,6 +35,7 @@ function Login() {
 
   if (response && response.token) {
     localStorage.setItem("JWT", response.token);
+    setLoggedIn(true);
     return (
       <div>
         <h4>Successfully Logged in</h4>
