@@ -10,7 +10,7 @@ function Login({ setLoggedIn }) {
   const [signUpForm, setSignUpForm] = useState(false);
 
   const openSignUpForm = () => {
-    setSignUpForm(true);
+    setSignUpForm(!signUpForm);
   };
 
   const sendLogin = () => {
