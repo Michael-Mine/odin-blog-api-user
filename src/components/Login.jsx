@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SignUp from "../components/SignUp";
 
 function Login({ setLoggedIn }) {
   const [inputEmail, setInputEmail] = useState("");
@@ -6,6 +7,11 @@ function Login({ setLoggedIn }) {
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
   const [loggingIn, setLoggingIn] = useState(false);
+  const [signUpForm, setSignUpForm] = useState(false);
+
+  const openSignUpForm = () => {
+    setSignUpForm(true);
+  };
 
   const sendLogin = () => {
     console.log("logging in");
@@ -34,6 +40,7 @@ function Login({ setLoggedIn }) {
   return (
     <div>
       <h4>Login to post Comments</h4>
+      <button onClick={openSignUpForm}>Sign Up</button>
       <label>Email:</label>
       <input
         data-testid="username-input"
@@ -51,6 +58,7 @@ function Login({ setLoggedIn }) {
       <button onClick={sendLogin}>Login</button>
       {error && <p>A network error was encountered</p>}
       {response && <p>{response.message}</p>}
+      {signUpForm && <SignUp />}
     </div>
   );
 }

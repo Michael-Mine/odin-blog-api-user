@@ -1,6 +1,5 @@
 import { useOutletContext, useParams } from "react-router";
 import formatDate from "../utils/formatDate";
-import SignUp from "../components/SignUp";
 import Login from "../components/Login";
 import WriteComment from "../components/WriteComment";
 import Comments from "../components/Comments";
@@ -33,7 +32,6 @@ function Post() {
         </p>
         <p>{post.content}</p>
       </div>
-      <SignUp />
       {token || loggedIn ? (
         <WriteComment setLoggedIn={setLoggedIn} />
       ) : (
