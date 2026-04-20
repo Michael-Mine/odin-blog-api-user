@@ -1,14 +1,20 @@
 import { useState } from "react";
 
 function SignUp() {
-  const [inputFirstName, setInputFirstName] = useState("");
-  const [inputLastName, setInputLastName] = useState("");
-  const [inputEmail, setInputEmail] = useState("");
-  const [inputPass, setInputPass] = useState("");
-  const [inputPassConfirm, setInputPassConfirm] = useState("");
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    passwordCheck: "",
+  });
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
   const [signingUp, setSigningUp] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const sendSignUp = () => {
     console.log("signing up");
@@ -19,13 +25,7 @@ function SignUp() {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify({
-        firstName: inputFirstName,
-        lastName: inputLastName,
-        username: inputEmail,
-        password: inputPass,
-        passwordCheck: inputPassConfirm,
-      }),
+      body: JSON.stringify(formData),
     })
       .then((response) => response.json())
       .then((response) => setResponse({ ...response }))
@@ -45,28 +45,31 @@ function SignUp() {
         <input
           className="input-field"
           id="first-name"
+          name="firstName"
           data-testid="firstName-input"
           type="text"
-          value={inputFirstName}
-          onChange={(event) => setInputFirstName(event.target.value)}
+          value={formData.firstName}
+          onChange={handleChange}
         />
         <label for="last-name">Last Name:</label>
         <input
           className="input-field"
           id="last-name"
+          name="lastName"
           data-testid="lastName-input"
           type="text"
-          value={inputLastName}
-          onChange={(event) => setInputLastName(event.target.value)}
+          value={formData.lastName}
+          onChange={handleChange}
         />
         <label for="username">Email:</label>
         <input
           className="input-field"
           id="username"
+          name="email"
           data-testid="username-input"
-          type="text"
-          value={inputEmail}
-          onChange={(event) => setInputEmail(event.target.value)}
+          type="email"
+          value={formData.email}
+          onChange={handleChange}
         />
       </div>
       <div className="input-container">
@@ -74,24 +77,28 @@ function SignUp() {
         <input
           className="input-field"
           id="password"
+          name="password"
           data-testid="password-input"
-          type="text"
-          value={inputPass}
-          onChange={(event) => setInputPass(event.target.value)}
+          type="password"
+          value={formData.password}
+          onChange={handleChange}
         />
         <label for="password-confirm">Password Confirm:</label>
         <input
           className="input-field"
-          id="password-confirm"
-          data-testid="password-confirm"
-          type="text"
-          value={inputPassConfirm}
-          onChange={(event) => setInputPassConfirm(event.target.value)}
+          id="passwordCheck"
+          name="passwordCheck"
+          data-testid="passwordCheck"
+          type="password"
+          value={formData.passwordCheck}
+          onChange={handleChange}
         />
       </div>
       <button onClick={sendSignUp}>Sign Up</button>
-      {error && <p>A network error was encountered</p>}
-      {response && <p>{response.message || response[0].msg}</p>}
+      {error && <p className="characters">A network error was encountered</p>}
+      {response && (
+        <p className="characters">{response.message || response[0].msg}</p>
+      )}
     </div>
   );
 }
