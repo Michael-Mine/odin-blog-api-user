@@ -37,21 +37,29 @@ function WriteComment({ setLoggedIn }) {
     setLoggedIn(false);
   };
 
+  const characters = input.length;
+
   return (
     <div>
       <h3>Add a Comment</h3>
-      <button onClick={() => logout()}>Logout</button>
-      <input
-        className="input-field"
-        data-testid="comment-input"
-        type="text"
-        placeholder="Add a comment"
-        value={input}
-        onChange={(event) => setInput(event.target.value)}
-      />
-      <button onClick={() => submitComment(input)}>Submit</button>
-      {error && <p>A network error was encountered</p>}
-      {response && <p>{response.message || response[0].msg}</p>}
+      <div className="comment-container">
+        <button onClick={() => logout()}>Logout</button>
+        <textarea
+          className="input-field comment"
+          data-testid="comment-input"
+          type="text"
+          placeholder="Add a comment"
+          value={input}
+          onChange={(event) => setInput(event.target.value)}
+          maxLength="400"
+        />
+        <button onClick={() => submitComment(input)}>Submit</button>
+      </div>
+      <p className="characters">Max characters {characters}/400</p>
+      {error && <p className="characters">A network error was encountered</p>}
+      {response && (
+        <p className="characters">{response.message || response[0].msg}</p>
+      )}
     </div>
   );
 }

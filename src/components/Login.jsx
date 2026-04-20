@@ -62,8 +62,8 @@ function Login({ setLoggedIn }) {
       </div>
       <button onClick={sendLogin}>Login</button>
       <button onClick={openSignUpForm}>or Sign Up</button>
-      {error && <p>A network error was encountered</p>}
-      {response && <p>{response.message}</p>}
+      {error && <p className="characters">A network error was encountered</p>}
+      {response && <p className="characters">{response.message}</p>}
       {signUpForm && <SignUp />}
     </div>
   );

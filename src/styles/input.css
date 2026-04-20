@@ -60,3 +60,18 @@
 } */
 
 /* Copyright - 2026 Allyhere (Camilo Micheletto )  */
+
+.comment-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comment {
+  width: 600px;
+  height: 3rem;
+}
+
+.characters {
+  text-align: center;
+}
