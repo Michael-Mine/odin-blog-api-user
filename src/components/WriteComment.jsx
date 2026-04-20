@@ -42,6 +42,7 @@ function WriteComment({ setLoggedIn }) {
       <h3>Add a Comment</h3>
       <button onClick={() => logout()}>Logout</button>
       <input
+        className="input-field"
         data-testid="comment-input"
         type="text"
         placeholder="Add a comment"

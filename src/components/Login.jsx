@@ -40,22 +40,28 @@ function Login({ setLoggedIn }) {
   return (
     <div>
       <h4>Login to post Comments</h4>
-      <button onClick={openSignUpForm}>Sign Up</button>
-      <label>Email:</label>
-      <input
-        data-testid="username-input"
-        type="text"
-        value={inputEmail}
-        onChange={(event) => setInputEmail(event.target.value)}
-      />
-      <label>Password:</label>
-      <input
-        data-testid="password-input"
-        type="text"
-        value={inputPass}
-        onChange={(event) => setInputPass(event.target.value)}
-      />
+      <div className="input-container">
+        <label for="username">Email:</label>
+        <input
+          className="input-field"
+          id="username"
+          data-testid="username-input"
+          type="text"
+          value={inputEmail}
+          onChange={(event) => setInputEmail(event.target.value)}
+        />
+        <label for="password">Password:</label>
+        <input
+          className="input-field"
+          id="password"
+          data-testid="password-input"
+          type="text"
+          value={inputPass}
+          onChange={(event) => setInputPass(event.target.value)}
+        />
+      </div>
       <button onClick={sendLogin}>Login</button>
+      <button onClick={openSignUpForm}>or Sign Up</button>
       {error && <p>A network error was encountered</p>}
       {response && <p>{response.message}</p>}
       {signUpForm && <SignUp />}

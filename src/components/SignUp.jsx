@@ -39,42 +39,56 @@ function SignUp() {
 
   return (
     <div>
-      <h4>Sign Up</h4>
-      <label>First Name:</label>
-      <input
-        data-testid="firstName-input"
-        type="text"
-        value={inputFirstName}
-        onChange={(event) => setInputFirstName(event.target.value)}
-      />
-      <label>Last Name:</label>
-      <input
-        data-testid="lastName-input"
-        type="text"
-        value={inputLastName}
-        onChange={(event) => setInputLastName(event.target.value)}
-      />
-      <label>Email:</label>
-      <input
-        data-testid="username-input"
-        type="text"
-        value={inputEmail}
-        onChange={(event) => setInputEmail(event.target.value)}
-      />
-      <label>Password:</label>
-      <input
-        data-testid="password-input"
-        type="text"
-        value={inputPass}
-        onChange={(event) => setInputPass(event.target.value)}
-      />
-      <label>Password Confirm:</label>
-      <input
-        data-testid="password-input"
-        type="text"
-        value={inputPassConfirm}
-        onChange={(event) => setInputPassConfirm(event.target.value)}
-      />
+      <h4>Sign Up Form</h4>
+      <div className="input-container">
+        <label for="first-name">First Name:</label>
+        <input
+          className="input-field"
+          id="first-name"
+          data-testid="firstName-input"
+          type="text"
+          value={inputFirstName}
+          onChange={(event) => setInputFirstName(event.target.value)}
+        />
+        <label for="last-name">Last Name:</label>
+        <input
+          className="input-field"
+          id="last-name"
+          data-testid="lastName-input"
+          type="text"
+          value={inputLastName}
+          onChange={(event) => setInputLastName(event.target.value)}
+        />
+        <label for="username">Email:</label>
+        <input
+          className="input-field"
+          id="username"
+          data-testid="username-input"
+          type="text"
+          value={inputEmail}
+          onChange={(event) => setInputEmail(event.target.value)}
+        />
+      </div>
+      <div className="input-container">
+        <label for="password">Password:</label>
+        <input
+          className="input-field"
+          id="password"
+          data-testid="password-input"
+          type="text"
+          value={inputPass}
+          onChange={(event) => setInputPass(event.target.value)}
+        />
+        <label for="password-confirm">Password Confirm:</label>
+        <input
+          className="input-field"
+          id="password-confirm"
+          data-testid="password-confirm"
+          type="text"
+          value={inputPassConfirm}
+          onChange={(event) => setInputPassConfirm(event.target.value)}
+        />
+      </div>
       <button onClick={sendSignUp}>Sign Up</button>
       {error && <p>A network error was encountered</p>}
       {response && <p>{response.message || response[0].msg}</p>}

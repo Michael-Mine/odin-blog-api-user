@@ -2,6 +2,8 @@ import { Outlet } from "react-router";
 import useAllPosts from "./hooks/useAllPosts";
 import Navbar from "./layouts/Navbar";
 import Footer from "./layouts/Footer";
+import "./styles/button.css";
+import "./styles/input.css";
 
 function App() {
   const { allPosts, error, loading } = useAllPosts();
