@@ -41,7 +41,7 @@ function Login({ setLoggedIn }) {
     <div>
       <h4>Login to post Comments</h4>
       <div className="input-container">
-        <label for="username">Email:</label>
+        <label htmlFor="username">Email:</label>
         <input
           className="input-field"
           id="username"
@@ -50,7 +50,7 @@ function Login({ setLoggedIn }) {
           value={inputEmail}
           onChange={(event) => setInputEmail(event.target.value)}
         />
-        <label for="password">Password:</label>
+        <label htmlFor="password">Password:</label>
         <input
           className="input-field"
           id="password"

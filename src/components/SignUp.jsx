@@ -41,7 +41,7 @@ function SignUp() {
     <div>
       <h4>Sign Up Form</h4>
       <div className="input-container">
-        <label for="first-name">First Name:</label>
+        <label htmlFor="first-name">First Name:</label>
         <input
           className="input-field"
           id="first-name"
@@ -51,7 +51,7 @@ function SignUp() {
           value={formData.firstName}
           onChange={handleChange}
         />
-        <label for="last-name">Last Name:</label>
+        <label htmlFor="last-name">Last Name:</label>
         <input
           className="input-field"
           id="last-name"
@@ -61,7 +61,7 @@ function SignUp() {
           value={formData.lastName}
           onChange={handleChange}
         />
-        <label for="username">Email:</label>
+        <label htmlFor="username">Email:</label>
         <input
           className="input-field"
           id="username"
@@ -73,7 +73,7 @@ function SignUp() {
         />
       </div>
       <div className="input-container">
-        <label for="password">Password:</label>
+        <label htmlFor="password">Password:</label>
         <input
           className="input-field"
           id="password"
@@ -83,7 +83,7 @@ function SignUp() {
           value={formData.password}
           onChange={handleChange}
         />
-        <label for="password-confirm">Password Confirm:</label>
+        <label htmlFor="password-confirm">Password Confirm:</label>
         <input
           className="input-field"
           id="passwordCheck"

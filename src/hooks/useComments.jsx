@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useComments = () => {
-  const [postId, setPostId] = useState(0);
+const useComments = ({ postId }) => {
   const [comments, setComments] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -35,7 +34,7 @@ const useComments = () => {
     };
   }, [url]);
 
-  return { setPostId, comments, error, loading };
+  return { comments, error, loading };
 };
 
 export default useComments;
