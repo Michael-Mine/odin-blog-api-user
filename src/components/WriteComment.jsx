@@ -1,5 +1,6 @@
 import { useParams } from "react-router";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 function WriteComment({ setLoggedIn }) {
   const [input, setInput] = useState("");
@@ -63,5 +64,9 @@ function WriteComment({ setLoggedIn }) {
     </div>
   );
 }
+
+WriteComment.propTypes = {
+  setLoggedIn: PropTypes.func,
+};
 
 export default WriteComment;

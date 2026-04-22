@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import SignUp from "../components/SignUp";
 
 function Login({ setLoggedIn }) {
@@ -68,5 +69,9 @@ function Login({ setLoggedIn }) {
     </div>
   );
 }
+
+Login.propTypes = {
+  setLoggedIn: PropTypes.func,
+};
 
 export default Login;

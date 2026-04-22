@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import formatDate from "../utils/formatDate";
 import styles from "../styles/HomePostItem.module.css";
+import PropTypes from "prop-types";
 
 function HomePostItem({ post }) {
   const url = `/post/${post.id}`;
@@ -21,5 +22,15 @@ function HomePostItem({ post }) {
     </Link>
   );
 }
+
+HomePostItem.propTypes = {
+  post: PropTypes.shape({
+    content: PropTypes.string,
+    datePublished: PropTypes.string,
+    id: PropTypes.number,
+    picUrl: PropTypes.string,
+    title: PropTypes.string,
+  }),
+};
 
 export default HomePostItem;
