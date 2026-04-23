@@ -18,6 +18,4 @@ function App() {
   );
 }
 
-// compenent static, state, proptype, css, tests/snapshot
-
 export default App;
