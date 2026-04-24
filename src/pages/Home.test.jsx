@@ -2,7 +2,6 @@ import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { createMemoryRouter, RouterProvider } from "react-router";
 import routes from "../router/routes";
-import App from "../App";
 import Home from "./Home";
 
 describe("Testing Home page", () => {
