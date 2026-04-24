@@ -2,7 +2,6 @@ import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import HomePostItem from "./HomePostItem";
-import formatDate from "../utils/formatDate";
 
 describe("Testing HomePostItem Component", () => {
   const postMock = {
@@ -23,13 +22,12 @@ describe("Testing HomePostItem Component", () => {
     const link = screen.getByRole("link", {
       name: "blog post picture Mon Mar 30 2026 Test Title Test content text",
     });
-    const dataFormatted = formatDate(postMock.datePublished);
     const date = screen.getByRole("heading", {
-      name: dataFormatted.toDateString(),
+      name: "Mon Mar 30 2026",
     });
-    const title = screen.getByRole("heading", { name: postMock.title });
+    const title = screen.getByRole("heading", { name: "Test Title" });
     const image = screen.getByAltText("blog post picture");
-    const content = screen.getByText(postMock.content);
+    const content = screen.getByText("Test content text");
 
     expect(link).toBeInTheDocument();
     expect(date).toBeInTheDocument();
