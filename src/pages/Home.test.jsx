@@ -1,11 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
-import {
-  createMemoryRouter,
-  RouterProvider,
-  useOutletContext,
-} from "react-router";
-import routes from "../router/routes";
+import { RouterProvider, useOutletContext } from "react-router";
 import Home from "./Home";
 import HomePostItem from "../components/HomePostItem";
 
