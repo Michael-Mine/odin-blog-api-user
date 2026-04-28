@@ -19,5 +19,3 @@ function App() {
 }
 
 export default App;
-
-// add cut off of full post on Home page

@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 function HomePostItem({ post }) {
   const url = `/post/${post.id}`;
   const date = formatDate(post.datePublished);
+  const content = post.content;
 
   return (
     <Link to={url} className={styles.item}>
@@ -17,7 +18,7 @@ function HomePostItem({ post }) {
       <div className="text">
         <h3>{date.toDateString()}</h3>
         <h2>{post.title}</h2>
-        <p>{post.content}</p>
+        <p>{content.slice(0, 300)}...</p>
       </div>
     </Link>
   );
