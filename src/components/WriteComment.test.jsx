@@ -13,8 +13,7 @@ describe("WriteComment component", () => {
   });
 
   it("renders heading, buttons, input & text", () => {
-    render(<WriteComment setLoggedIn={() => {}} />);
-    const { container } = render(<WriteComment />);
+    const { container } = render(<WriteComment setLoggedIn={() => {}} />);
 
     expect(container).toMatchSnapshot();
   });
