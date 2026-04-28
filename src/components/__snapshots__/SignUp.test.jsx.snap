@@ -1,14 +1,40 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`WriteComment component > renders heading, buttons, input & text 1`] = `
+exports[`SignUp component > renders heading, inputs & button 1`] = `
 <div>
   <div>
     <h4>
-      Login to post Comments
+      Sign Up Form
     </h4>
     <div
       class="input-container"
     >
+      <label
+        for="first-name"
+      >
+        First Name:
+      </label>
+      <input
+        class="input-field"
+        data-testid="firstName-input"
+        id="first-name"
+        name="firstName"
+        type="text"
+        value=""
+      />
+      <label
+        for="last-name"
+      >
+        Last Name:
+      </label>
+      <input
+        class="input-field"
+        data-testid="lastName-input"
+        id="last-name"
+        name="lastName"
+        type="text"
+        value=""
+      />
       <label
         for="username"
       >
@@ -18,54 +44,15 @@ exports[`WriteComment component > renders heading, buttons, input & text 1`] = `
         class="input-field"
         data-testid="username-input"
         id="username"
-        type="text"
-        value=""
-      />
-      <label
-        for="password"
-      >
-        Password:
-      </label>
-      <input
-        class="input-field"
-        data-testid="password-input"
-        id="password"
-        type="text"
+        name="email"
+        type="email"
         value=""
       />
     </div>
-    <button>
-      Login
-    </button>
-    <button>
-      or Sign Up
-    </button>
-  </div>
-</div>
-`;
-
-exports[`WriteComment component > renders heading, buttons, inputs 1`] = `
-<div>
-  <div>
-    <h4>
-      Login to post Comments
-    </h4>
     <div
       class="input-container"
     >
       <label
-        for="username"
-      >
-        Email:
-      </label>
-      <input
-        class="input-field"
-        data-testid="username-input"
-        id="username"
-        type="text"
-        value=""
-      />
-      <label
         for="password"
       >
         Password:
@@ -74,15 +61,26 @@ exports[`WriteComment component > renders heading, buttons, inputs 1`] = `
         class="input-field"
         data-testid="password-input"
         id="password"
-        type="text"
+        name="password"
+        type="password"
+        value=""
+      />
+      <label
+        for="password-confirm"
+      >
+        Password Confirm:
+      </label>
+      <input
+        class="input-field"
+        data-testid="passwordCheck"
+        id="passwordCheck"
+        name="passwordCheck"
+        type="password"
         value=""
       />
     </div>
     <button>
-      Login
-    </button>
-    <button>
-      or Sign Up
+      Sign Up
     </button>
   </div>
 </div>

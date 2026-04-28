@@ -12,7 +12,7 @@ describe("WriteComment component", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders heading, buttons, input & text", () => {
+  it("renders heading, buttons, inputs", () => {
     const { container } = render(<Login setLoggedIn={() => {}} />);
 
     expect(container).toMatchSnapshot();
@@ -39,17 +39,6 @@ describe("WriteComment component", () => {
 
     expect(input.value).toBe("Cool password");
   });
-
-  // it("login button calls callback", async () => {
-  //   const setLoggedIn = vi.fn();
-  //   const user = userEvent.setup();
-  //   render(<Login setLoggedIn={setLoggedIn} />);
-
-  //   const button = screen.getByRole("button", { name: "Login" });
-  //   await user.click(button);
-  //   // after response & token
-  //   expect(setLoggedIn).toHaveBeenCalled();
-  // });
 
   it("logging in text is shown while API request is in progress", async () => {
     const user = userEvent.setup();
