@@ -4,7 +4,7 @@ function SignUp() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    email: "",
+    username: "",
     password: "",
     passwordCheck: "",
   });
@@ -67,10 +67,10 @@ function SignUp() {
         <input
           className="input-field"
           id="username"
-          name="email"
+          name="username"
           data-testid="username-input"
           type="email"
-          value={formData.email}
+          value={formData.username}
           onChange={handleChange}
         />
       </div>
