@@ -9,6 +9,8 @@ function Login({ setLoggedIn }) {
   const [error, setError] = useState(null);
   const [loggingIn, setLoggingIn] = useState(false);
   const [signUpForm, setSignUpForm] = useState(false);
+  const apiUrl = import.meta.env.VITE_API_URL;
+  const url = `${apiUrl}login`;
 
   const openSignUpForm = () => {
     setSignUpForm(!signUpForm);
@@ -18,7 +20,7 @@ function Login({ setLoggedIn }) {
     console.log("logging in");
     setLoggingIn(true);
 
-    fetch("http://localhost:3000/login", {
+    fetch(url, {
       method: "POST",
       headers: {
         "content-type": "application/json",

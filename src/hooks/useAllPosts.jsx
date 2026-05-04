@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const useAllPosts = () => {
   const [allPosts, setAllPosts] = useState([]);
@@ -7,7 +8,7 @@ const useAllPosts = () => {
 
   useEffect(() => {
     console.log("fetching allPosts");
-    fetch("http://localhost:3000/posts")
+    fetch(`${apiUrl}posts/`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`Response status: ${response.status}`);

@@ -11,6 +11,8 @@ function SignUp() {
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
   const [signingUp, setSigningUp] = useState(false);
+  const apiUrl = import.meta.env.VITE_API_URL;
+  const url = `${apiUrl}sign-up`;
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,7 +22,7 @@ function SignUp() {
     console.log("signing up");
     setSigningUp(true);
 
-    fetch("http://localhost:3000/sign-up", {
+    fetch(url, {
       method: "POST",
       headers: {
         "content-type": "application/json",

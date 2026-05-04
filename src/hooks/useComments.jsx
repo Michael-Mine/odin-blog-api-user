@@ -4,8 +4,9 @@ const useComments = ({ postId }) => {
   const [comments, setComments] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const apiUrl = import.meta.env.VITE_API_URL;
 
-  const url = `http://localhost:3000/posts/${postId}/comments`;
+  const url = `${apiUrl}posts/${postId}/comments`;
 
   useEffect(() => {
     const controller = new AbortController();
