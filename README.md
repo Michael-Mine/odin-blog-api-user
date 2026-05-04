@@ -106,13 +106,17 @@ git clone https://github.com/Michael-Mine/odin-blog-api-user.git
 npm install
 ```
 
-**2. Run App:**
+**2. Environment Setup:**
+
+Create a `.env` in root with `VITE_API_URL="http://localhost:3000/"`
+
+**3. Run App:**
 
 ```bash
 npm run dev
 ```
 
-**3. Run Tests:**
+**4. Run Tests:**
 
 ```bash
 npm run test
