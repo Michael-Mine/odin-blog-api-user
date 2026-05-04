@@ -121,3 +121,19 @@ npm run dev
 ```bash
 npm run test
 ```
+
+---
+
+## Deployment on Netlify
+
+1. Link GitHub repo
+
+2. Check default Build command is as:
+
+```bash
+npm run dev
+```
+
+3. Check default Publish directory is as `dist`
+
+4. Add environment variable key: `VITE_API_URL` and value as the URL where the API is hosted.
